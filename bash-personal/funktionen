@@ -1,0 +1,69 @@
+#!/bin/bash
+
+function forSchleife() {
+
+    counter=0
+
+    echo "------------------------"
+    echo "Folgende Zeilen sind die sich in diesem Verzeichnis angelegten Dokumente:"
+    echo " "
+
+    for i in $( ls ); do
+        echo Name: $i
+        let counter=counter+1
+    done
+    
+    echo "------------------------"
+    echo Es befinden sich $counter Verzeichnisse in diesem Verzeichnus
+}
+
+function userInput() {
+
+    options="Neofetch Prozesse Exit"
+
+    echo "Was soll ausgeführt werden?"
+    echo " "
+
+    select option in $options; do
+        if [ "Neofetch" = $option ]; then
+            neofetch
+            exit
+        elif [ "Prozesse" = $option ]; then
+            top
+            echo " "
+            echo "-------------------------------------------------------------"
+            echo " "
+            echo "Exiting..."
+            exit
+        elif [ "Exit" = $option ]; then
+            clear
+            exit
+        else
+        echo "Error"
+        fi
+    done
+}
+
+function ifAbfragen() {
+
+    i=0
+
+    echo "------------------------"
+    echo "Gib eine Zahl ein und schaue ob sie größer als i ist!"
+    echo "Hinweis: Die Zahl ist zwischen 1 und 20"
+    echo "------------------------"
+
+    read i
+
+    echo "------------------------"
+    if [ $i = 10 ]; then
+        echo Du hast es erraten, die Zahl ist $i
+    else
+    echo Deine Zahl $i ist leider ungleich der gesuchten Zahl
+    fi
+    echo "------------------------"
+}
+
+forSchleife
+userInput
+ifAbfragen

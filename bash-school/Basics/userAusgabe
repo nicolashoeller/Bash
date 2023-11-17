@@ -1,0 +1,8 @@
+#!/bin/bash
+
+date=$(date)
+user=$(whoami)
+verzeichnis=$(pwd)
+
+echo "Hallo" $user "!" "Das heutige Datum ist:" $date
+echo "Sie befinden sich im folgendem Pfad:" $verzeichnis

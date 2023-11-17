@@ -1,0 +1,10 @@
+#!/bin/bash
+found=false
+count=0
+while [ $found = false ]; do
+    ((count++))
+    if [[ $((count%7)) = 0 && $((count%11)) = 0 && $((count%13)) = 0 ]]; then
+        echo "Die kleinste Zahl die durch 7, 11 und 13 geteilt werden kann ist" $count
+        found=true
+    fi
+done

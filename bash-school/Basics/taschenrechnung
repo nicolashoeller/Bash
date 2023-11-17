@@ -1,0 +1,34 @@
+#!/bin/bash
+
+x=0
+y=0
+options="Addition Subtraktion Division Multiplikation Exit"
+clear
+echo "Gib deine erste Zahl ein: "
+read x
+echo "Gib deine zweite Zahl ein: "
+read y
+
+select option in $options; do
+    if [ $option == "Addition" ]; then
+        x=$(( $x + $y ))
+        echo $x
+        exit
+    elif [ $option == "Subtraktion" ]; then
+        x=$(( $x - $y ))
+        echo $x
+        exit
+    elif [ $option == "Division" ]; then
+        x=$(( $x / $y ))
+        echo $x
+        exit
+    elif [ $option == "Multiplikation" ]; then
+        x=$(( $x * $y))
+        echo $x
+        exit
+    elif [ $option == "Exit" ]; then
+        exit
+    else
+        echo "False Input"
+    fi
+done

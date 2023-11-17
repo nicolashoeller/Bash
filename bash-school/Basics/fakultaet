@@ -1,0 +1,20 @@
+#!/bin/bash
+
+eingabe=0
+count=0
+
+read eingabe
+
+count=$eingabe
+
+if [ $eingabe -gt 0 ]; then
+    while [ $count -gt 2 ]; do
+        ((count--))
+        eingabe=$((eingabe*count))
+    done
+    echo "Die Fakultät deiner Zahl ist" $eingabe
+elif [ 0 -gt $eingabe ]; then
+    echo "Deine Angebe ist nicht definiert"
+else
+    echo "Die Fakultät deiner Zahl ist 1"
+fi

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+mkdir MeineNotizen
+cd MeineNotizen
+echo Hallo > text.txt
+cat text.txt
+cd ..
+rm -rf MeineNotizen

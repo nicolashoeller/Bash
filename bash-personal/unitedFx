@@ -1,0 +1,110 @@
+#!/bin/bash
+
+function forSchleife() {
+
+    counter=0
+
+    echo "------------------------"
+    echo "Folgende Zeilen sind die sich in diesem Verzeichnis angelegten Dokumente:"
+    echo " "
+
+    for i in $( ls ); do
+        echo Name: $i
+        let counter=counter+1
+    done
+    
+    echo "------------------------"
+    echo Es befinden sich $counter Verzeichnisse in diesem Verzeichnus
+}
+
+function userInput() {
+
+    options="Neofetch Prozesse Exit"
+
+    echo "Was soll ausgeführt werden?"
+    echo " "
+
+    select option in $options; do
+        if [ "Neofetch" = $option ]; then
+            neofetch
+            exit
+        elif [ "Prozesse" = $option ]; then
+            top
+            echo " "
+            echo "-------------------------------------------------------------"
+            echo " "
+            echo "Exiting..."
+            exit
+        elif [ "Exit" = $option ]; then
+            clear
+            exit
+        else
+        echo "Error"
+        fi
+    done
+}
+
+function ifAbfragen() {
+
+    i=0
+
+    echo "------------------------"
+    echo "Gib eine Zahl ein und schaue ob sie größer als i ist!"
+    echo "Hinweis: Die Zahl ist zwischen 1 und 20"
+    echo "------------------------"
+
+    while [ $i -ne 10 ]; do
+        while [ $i = 0 ]; do
+            read i
+            if [ $i = 10 ]; then
+                echo "------------------------"
+                echo Du hast es erraten, die Zahl ist $i
+                echo "------------------------"  
+                exit
+            fi
+        done
+        echo "------------------------"
+        echo Deine Zahl $i ist leider ungleich der gesuchten Zahl!
+        echo "------------------------"
+        read i
+    done
+
+    echo "------------------------"
+    echo Du hast es erraten, die Zahl ist $i
+    echo "------------------------"
+}
+
+function unitedfx() {
+
+    options="For-Schleife UserInput If-Abfragen Exit"
+
+    echo "Was soll ausgeführt werden?"
+    echo ""
+
+    select option in $options; do
+        if [ "For-Schleife" = $option ]; then
+            forSchleife
+            exit
+        elif [ "UserInput" = $option ]; then
+            echo ""
+            echo "------------------------"
+            echo ""
+            userInput
+            exit
+        elif [ "If-Abfragen" = $option ]; then
+            ifAbfragen
+            exit
+        elif [ "Exit" = $option ]; then
+            clear
+            exit
+        else
+        clear
+        echo Wähle eine der genannten Optionen aus:
+        echo ""
+        unitedfx
+        fi
+    done
+    
+}
+
+unitedfx

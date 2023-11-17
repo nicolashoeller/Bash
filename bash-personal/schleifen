@@ -1,0 +1,12 @@
+#!/bin/bash
+
+for i in $( ls ); do
+    echo Name: $i
+done
+
+i=0
+
+while [ $i -lt 5 ]; do
+    echo $i
+    let i=i+1
+done

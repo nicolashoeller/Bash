@@ -1,0 +1,19 @@
+#!/bin/bash
+
+options="Run Exit Clear"
+
+select option in $options; do
+    if [ "Run" = $option ]; then
+        echo "Run motherfucker"
+        exit
+    elif [ "Exit" = $option ]; then
+        neofetch
+        echo "Exiting"
+        exit
+    elif [ "Clear" = $option ]; then
+        clear
+        exit
+    else
+    echo "Error"
+    fi
+done
