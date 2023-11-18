@@ -1,16 +1,14 @@
 #!/bin/bash
 benutzerAnzahl=0
-echo "Wie viele Benutzer willst du erstellen?"
+echo "Wie viele Benutzer willst du erstellen? (Tippe 1 um vorherige Benutzer zu löschen)"
 read benutzerAnzahl
-mkdir Benutzer
-cd Benutzer
 
 if [ $benutzerAnzahl -ne 1 ]; then
+    mkdir Benutzer
+    cd Benutzer
     for ((i=0; i < $benutzerAnzahl; i++)); do
-        echo "Benutzer_"$i >> "Benutzer_"$i".txt"
-        echo "Kennwort_"$i >> "Benutzer_"$i".txt"
+        echo "Benutzer_"$i >> "Benutzer_"$i".txt" | echo "Kennwort_"$i >> "Benutzer_"$i".txt"
     done
 else
-    cd ..
     rm -r Benutzer
 fi
