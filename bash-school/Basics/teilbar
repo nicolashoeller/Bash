@@ -1,6 +1,6 @@
 #!/bin/bash
 found=false
-count=0
+count=13
 while [ $found = false ]; do
     ((count++))
     if [[ $((count%7)) = 0 && $((count%11)) = 0 && $((count%13)) = 0 ]]; then
