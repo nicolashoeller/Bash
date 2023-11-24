@@ -1,13 +1,18 @@
 #!/bin/bash
+
+eingabe=0
 benutzerAnzahl=0
+
 echo "Wie viele Benutzer willst du erstellen? (Tippe 1 um vorherige Benutzer zu löschen)"
 read benutzerAnzahl
+echo "Wie lang soll das Passwort sein?"
+read eingabe
 
 if [ $benutzerAnzahl -ne 1 ]; then
     mkdir Benutzer
     cd Benutzer
     for ((i=0; i < $benutzerAnzahl; i++)); do
-        echo "Benutzer_"$i >> "Benutzer_"$i".txt" | echo "Kennwort_"$i >> "Benutzer_"$i".txt"
+        echo "Benutzer_"$i >> "Benutzer_"$i".txt" | echo $RANDOM | md5sum | head -c $eingabe >> "Benutzer_"$i".txt"
     done
 else
     rm -r Benutzer
