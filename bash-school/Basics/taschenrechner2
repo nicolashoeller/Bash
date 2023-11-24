@@ -1,0 +1,10 @@
+#!/bin/bash
+
+calculate() {
+    echo "$1" | bc -l
+}
+
+echo "Gib deine Berechnung ein:"
+read expression
+
+echo "Ergebnis: $(calculate "$expression")"
