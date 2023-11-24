@@ -1,5 +1,8 @@
 #!/bin/bash
 
+param1=$1
+ergebnis=0
+
 while getopts c:r:k:s: flag; do
     case "${FLAG}" in
         c)  count=true;;
@@ -9,3 +12,8 @@ while getopts c:r:k:s: flag; do
     esac
 done
 
+if [ count = true ]; then
+    ergebnis=$(wc -w < "$param1")
+fi
+
+echo $ergebnis
