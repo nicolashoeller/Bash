@@ -1,0 +1,11 @@
+#!/bin/bash
+
+while getopts c:r:k:s: flag; do
+    case "${FLAG}" in
+        c)  count=true;;
+        r)  replace=true;;
+        k)  convert=true;;
+        s)  search=true;;
+    esac
+done
+
