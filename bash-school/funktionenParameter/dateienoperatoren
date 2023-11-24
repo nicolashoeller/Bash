@@ -13,15 +13,8 @@ if [[ $help = true || -z "$createFile" && -z "$removeFile" ]]; then
     echo "# -c 'NAME' | create file #"
     echo "# -r 'NAME' | remove file #"
     echo "###########################"
-
-elif [ -z "$createFile" ]; then
+fi
+if [[ $help = false ]]; then        # Fixed output bug
     rm -rf $removeFile
-
-elif [ -z "$removeFile" ]; then
     touch $createFile
-
-else
-    echo "--------------------"
-    echo "For help use -h flag"
-    echo "--------------------"
 fi
