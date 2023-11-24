@@ -1,0 +1,6 @@
+#!/bin/bash
+
+eingabe=0
+read eingabe
+
+echo $RANDOM | md5sum | head -c $eingabe; echo;
