@@ -8,13 +8,13 @@ while getopts c:r::h flag; do
     esac
 done
 
-if [[ $help = true || -z "$createFile" && -z "$removeFile" ]]; then
+if [[ $help = true || -z $createFile && -z $removeFile ]]; then
     echo "###########################"
     echo "# -c 'NAME' | create file #"
     echo "# -r 'NAME' | remove file #"
     echo "###########################"
-fi
-if [[ $help = false ]]; then        # Fixed output bug
+elif [ -z $createFile ]; then
     rm -rf $removeFile
+elif [ -z $removeFile ]; then
     touch $createFile
 fi
