@@ -1,0 +1,19 @@
+#!/bin/bash
+
+param1=$1
+param2=$2
+
+x=$param1
+
+if [ $param1 -gt $param2 ]; then
+    echo "Der erste Parameter ist größer als der zweite"
+elif [ $param1 -lt $param2 ]; then
+    echo "Der zweite Parameter ist größer als der erste"
+else
+    echo "Die Paramenter sind gleich"
+fi
+
+x=$((param1+param2))
+echo $x
+x=$((param1*param2))
+echo $x
