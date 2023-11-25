@@ -1,0 +1,29 @@
+#!/bin/bash
+
+mul=false
+div=false
+
+while getopts "d:m:" flag; do
+    case "${flag}" in
+        d)  first_num="${OPTARG}"; div=true;;
+        m)  first_num="${OPTARG}"; mul=true;;
+    esac
+done
+
+# Shift, um die bereits verarbeiteten Optionen zu überspringen
+shift $((OPTIND-1))
+second_num="${1}"
+
+if [ -z "$first_num" ] || [ -z "$second_num" ]; then
+    echo "Bitte geben Sie zwei Zahlen an."
+    exit 1
+fi
+
+if [ "$div" = true ]; then
+    first_num=$((first_num / second_num))
+fi
+if [ "$mul" = true ]; then
+    first_num=$((first_num * second_num))
+fi
+
+echo "$first_num"
