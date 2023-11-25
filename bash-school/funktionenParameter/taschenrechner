@@ -2,11 +2,15 @@
 
 mul=false
 div=false
+add=false
+sub=false
 
-while getopts "d:m:" flag; do
+while getopts "d:m:a:s" flag; do
     case "${flag}" in
         d)  first_num="${OPTARG}"; div=true;;
         m)  first_num="${OPTARG}"; mul=true;;
+        a)  first_num="${OPTARG}"; add=true;;
+        s)  first_num="${OPTARG}"; sub=true;;
     esac
 done
 
@@ -24,6 +28,9 @@ if [ "$div" = true ]; then
 fi
 if [ "$mul" = true ]; then
     first_num=$((first_num * second_num))
+fi
+if [ "$add" = true ]; then
+    first_num=$((first_num + second_num))
 fi
 
 echo "$first_num"
