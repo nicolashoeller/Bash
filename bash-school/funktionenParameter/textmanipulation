@@ -1,10 +1,14 @@
 #!/bin/bash
 
-param1=$1
+param1=""
 ergebnis=0
+count=false
+replace=false
+convert=false
+search=false
 
-while getopts c:r:k:s: flag; do
-    case "${FLAG}" in
+while getopts "crks:" flag; do
+    case "${flag}" in
         c)  count=true;;
         r)  replace=true;;
         k)  convert=true;;
@@ -12,8 +16,19 @@ while getopts c:r:k:s: flag; do
     esac
 done
 
-if [ count = true ]; then
+shift $((OPTIND-1))
+param1="${1}"
+
+if [ -z "$param1" ]; then
+    echo "Bitte geben Sie einen Dateipfad an."
+    exit 1
+fi
+if [ ! -e "$param1" ]; then
+    echo "Die Datei '$param1' existiert nicht."
+    exit 1
+fi
+if [ "$count" = true ]; then
     ergebnis=$(wc -w < "$param1")
 fi
 
-echo $ergebnis
+echo "$ergebnis"
