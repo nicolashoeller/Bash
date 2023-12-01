@@ -1,2 +1,21 @@
 #!/bin/bash
 
+fileName=${1}
+
+function check_file(){
+    if [ -e "$fileName" ]; then
+        if [ -r "$fileName" ]; then
+            if [ -f "$fileName" ]; then
+                echo "Exitcode 0"
+            else
+            echo "Diese Datei kann nicht geöffnet werden"
+            fi
+        else
+        echo "Du hast keine leserechte!"
+        fi
+    else
+    echo "Datei existiert nicht!"
+    fi
+}
+
+check_file
