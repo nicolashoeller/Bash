@@ -7,7 +7,12 @@ read PLAYERNUMBER
 function corrercOrNot(){
     while [ $RNUMBER -ne $PLAYERNUMBER ]; do
         read PLAYERNUMBER
-        echo "Versuch es erneut"
+        echo "Versuch es erneut!"
+        if [ $RNUMBER -lt $PLAYERNUMBER ]; then
+            echo "Die Zahl die du raten musst ist kleiner!"
+        else
+            echo "Die Zahl die du raten musst ist größer!"
+        fi
     done
     echo "Du hast die Zahl erraten, sie ist $RNUMBER"
 }
