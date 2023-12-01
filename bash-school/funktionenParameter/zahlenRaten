@@ -1,0 +1,15 @@
+#!/bin/bash
+
+RNUMBER=$((1 + $RANDOM % 100))
+
+read PLAYERNUMBER
+
+function corrercOrNot(){
+    while [ $RNUMBER -ne $PLAYERNUMBER ]; do
+        read PLAYERNUMBER
+        echo "Versuch es erneut"
+    done
+    echo "Du hast die Zahl erraten, sie ist $RNUMBER"
+}
+
+corrercOrNot
