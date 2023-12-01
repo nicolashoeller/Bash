@@ -1,0 +1,17 @@
+#!/bin/bash
+
+ZAHL1=${1}
+ZAHL2=${2}
+
+function mul(){
+    ZAHL1=$((ZAHL1 * ZAHL2))
+    echo $ZAHL1
+}
+
+function div(){
+    ZAHL1=$((ZAHL1 / ZAHL2))
+    echo $ZAHL1
+}
+
+mul
+div
