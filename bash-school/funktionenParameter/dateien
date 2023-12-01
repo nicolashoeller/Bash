@@ -1,8 +1,7 @@
 #!/bin/bash
 
+read -p "Pfad angeben: " PATH
 read -p "Dateiendung eingeben: " FILEEND
-
-PATH=$(pwd)
 
 for FILE in "$PATH"/*.$FILEEND; do
     echo "$FILE"
