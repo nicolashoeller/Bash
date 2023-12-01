@@ -5,4 +5,7 @@ read -p "Dateiendung eingeben: " FILEEND
 
 for FILE in "$PATH"/*.$FILEEND; do
     echo "$FILE"
+    ((count++))
 done
+
+echo -p "$count Dateien haben die Endung $FILEEND"
