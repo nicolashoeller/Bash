@@ -1,0 +1,25 @@
+#!/bin/bash
+
+DIVISION=false
+MULTIPLICATION=false
+
+while getopts "m:d:" FLAG; do
+    case "${FLAG}" in
+        d)    DIVISION=true;;
+        m)    MULTIPLICATION=true;;
+    esac
+done
+
+
+ZAHL1=${2}
+ZAHL2=${3}
+
+if [ "$DIVISION" == true ]; then
+    ZAHL1=$((ZAHL1 / ZAHL2))
+    echo $ZAHL1
+fik
+
+if [ "$MULTIPLICATION" == true ]; then
+    ZAHL1=$((ZAHL1 * ZAHL2))
+    echo $ZAHL1
+fi
