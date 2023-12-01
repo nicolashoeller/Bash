@@ -1,0 +1,22 @@
+#!/bin/bash
+
+all=false
+PATH=$(pwd)
+
+while getopts "ad:" FLAGS; do
+    case "${FLAGS}" in
+        a)  all=true;;
+        d)  userfile=${OPTARG};;
+    esac
+done
+
+function chmodAll(){
+    for FILE in "$PATH"/*.sh; do
+        /usr/bin/chmod +x "$FILE"
+    done
+    echo "hoi"
+}
+
+if [ "$all" == true ]; then
+    chmodAll
+fi
