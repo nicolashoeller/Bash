@@ -1,13 +1,13 @@
 #!/bin/bash
 
-param1=""
+
 ergebnis=0
 count=false
 replace=false
 convert=false
 search=false
 
-while getopts "crks:" flag; do
+while getopts "c:r:k:s:" flag; do
     case "${flag}" in
         c)  count=true;;
         r)  replace=true;;
@@ -16,8 +16,10 @@ while getopts "crks:" flag; do
     esac
 done
 
-shift $((OPTIND-1))
-param1="${1}"
+
+param1=${2}
+param2=${3}
+param3=${4}
 
 if [ -z "$param1" ]; then
     echo "Bitte geben Sie einen Dateipfad an."
@@ -29,6 +31,9 @@ if [ ! -e "$param1" ]; then
 fi
 if [ "$count" = true ]; then
     ergebnis=$(wc -w < "$param1")
+fi
+if [ "$replace" = true ]; then
+    sed -i "s/$param2/$param3/" $param1
 fi
 
 echo "$ergebnis"
