@@ -1,0 +1,9 @@
+#!/bin/bash
+
+read -p "Dateiendung eingeben: " FILEEND
+
+PATH=$(pwd)
+
+for FILE in "$PATH"/*.$FILEEND; do
+    echo "$FILE"
+done
