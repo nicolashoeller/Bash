@@ -1,7 +1,18 @@
 #!/bin/bash
 
+function chmodAll(){
+    for FILE in "$dir_path"/*.sh; do
+        /usr/bin/chmod +x "$FILE"
+    done
+    echo "hoi"
+}
+
+function chmodFile(){
+    chmod +x "$userfile"
+}
+
 all=false
-PATH=$(pwd)
+dir_path=$(pwd)
 
 while getopts "ad:" FLAGS; do
     case "${FLAGS}" in
@@ -10,13 +21,10 @@ while getopts "ad:" FLAGS; do
     esac
 done
 
-function chmodAll(){
-    for FILE in "$PATH"/*.sh; do
-        /usr/bin/chmod +x "$FILE"
-    done
-    echo "hoi"
-}
-
 if [ "$all" == true ]; then
     chmodAll
+fi
+
+if [ -n "$userfile" ]; then
+    chmodFile
 fi
