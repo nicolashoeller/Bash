@@ -1,14 +1,21 @@
 #!/bin/bash
 
-function chmodAll(){
-    for FILE in "$dir_path"/*.sh; do
-        /usr/bin/chmod +x "$FILE"
+function chmodAll() {
+    for file in "$dir_path"/*.sh; do
+        if [ -f "$file" ]; then
+            chmod +x "$file"
+            echo "Added execute permission to $file"
+        fi
     done
-    echo "hoi"
 }
 
-function chmodFile(){
-    chmod +x "$userfile"
+function chmodFile() {
+    if [ -f "$userfile" ]; then
+        chmod +x "$userfile"
+        echo "Added execute permission to $userfile"
+    else
+        echo "File $userfile not found."
+    fi
 }
 
 all=false
