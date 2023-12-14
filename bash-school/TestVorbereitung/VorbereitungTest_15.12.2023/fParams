@@ -1,0 +1,12 @@
+#!/bin/bash
+
+param1=$1
+param2=$2
+
+param1=$((param1+param2))
+
+for i in "$@"; do
+	echo "$i"
+done
+
+echo $param1

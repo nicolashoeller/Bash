@@ -1,0 +1,11 @@
+#!/bin/bash
+
+while getopts u:a: flag; do
+	case "${flag}" in
+		u) firstNum=${OPTARG};;
+		a) secondNum=${OPTARG};;
+	esac
+done
+
+echo $firstNum
+echo $secondNum
