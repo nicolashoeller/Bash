@@ -1,0 +1,31 @@
+#!/bin/bash
+
+#Klassische Schleife
+
+echo ""
+echo "Klassische Schleife:"
+echo ""
+
+for((i=0;i<10;i++)); do
+	echo $i
+done
+
+#Listenschleife
+
+echo ""
+echo "Listenschleife:"
+echo ""
+
+for i in "Hallo" "Welt" "!"; do
+	echo $i
+done
+
+#Fixe Anzahl an Durchläufen
+
+echo ""
+echo "Fixe Anzahl an Durchläufen:"
+echo ""
+
+for i in {1,2,3,4,5,6}; do
+	echo $i
+done
